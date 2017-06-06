@@ -3,6 +3,9 @@ import java.util.Scanner;
 /**
  * Created by Admin on 4/17/2017.
  */
+
+// Write a Program that recognizes invalid inputs when the user requests informations about student in class.
+
 public class Main {
 
     private static int studentNumber;
@@ -78,6 +81,7 @@ public class Main {
 
         try
         {
+            // We ask the user to enter a student number, this also includes an exception to be thrown if the user doesn not enter properly
             do {
                 System.out.println("Student List:");
                 System.out.println("1 - Carl");
@@ -92,10 +96,14 @@ public class Main {
                     throw new Exception("Invalid Integer!!");
                 }
 
+                // The user's selected number becomes the student number that is select via a setter method
                 setStudentNumber(userNumber);
 
+                // This method is passed around throughout the rest of the program in the form of a getter method.
                 System.out.println("The student you chose is " + getName(studentNumber) + ".");
 
+                // The user must choose an option to learn more about a student
+                System.out.println("");
                 System.out.println("Would you like to know more about " + getName(studentNumber) + "?");
                 System.out.println("Enter 1 for favorite food. Enter 2 for hometown");
                 int i = scnr.nextInt();
@@ -104,6 +112,7 @@ public class Main {
                     throw new Exception("Invalid Integer!!");
                 }
 
+                // Depending on the user's choice, and assuming the user has added an appropriate integer, the output can be one of two method, both of which are simply strings
                 switch (i)
                 {
                     case 1:
@@ -118,6 +127,7 @@ public class Main {
 
                 scnr.nextLine();
 
+                // Finally, we ask if the user wants to know more about another student, thus repeating the process again.
                 System.out.println("Would you like to know more about another student? (y/n)?");
                 String s = scnr.nextLine();
                 if ("y".equalsIgnoreCase(s))
@@ -126,6 +136,7 @@ public class Main {
                 }
                 else if ("n".equalsIgnoreCase(s))
                 {
+                    System.out.println("Goodbye");
                     bool = false;
                 }
                 else
